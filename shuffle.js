@@ -17,5 +17,5 @@ function randomCode() {
 
 // 不可以重复的 6 位 验证码
 function uniqueRandomCode() {
-  return shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(6);
+  return shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 6);
 }
