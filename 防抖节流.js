@@ -7,11 +7,10 @@ const debounce = (fn, wait) => {
     let _this = this;
     if (timer) {
       clearTimeout(timer);
-    } else {
-      timer = setTimeout(() => {
-        fn.apply(_this, ...args);
-      }, wait);
     }
+    timer = setTimeout(() => {
+      fn.apply(_this, ...args);
+    }, wait);
   };
 };
 
@@ -29,5 +28,17 @@ const throttle = (fn, wait) => {
         fn.apply(_this, ...args);
       }, wait);
     }
+  };
+};
+
+const _debounce = (fn, wait) => {
+  let timer = null;
+  return function (...args) {
+    const _this = this;
+    if (timer) clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      fn.apply(_this, args);
+    }, wait);
   };
 };
